@@ -1,30 +1,15 @@
 package dao;
-import org.sql2o.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import models.Users;
+import java.util.List;
 
-public class DepartmentInterface {
-    private static URI dbUri;
-    public static Sql2o sql2o;
-    static Logger logger = LoggerFactory.getLogger(DatabaseInterface.class);
-    static {
+public interface DepartmentInterface {
 
-        try {
-            if (System.getenv("DATABASE_URL") == null) {
-                dbUri = new URI("postgres://localhost:5432/news_portal");
-            } else {
-                dbUri = new URI(System.getenv("DATABASE_URL"));
-            }
-            int port = dbUri.getPort();
-            String host = dbUri.getHost();
-            String path = dbUri.getPath();
-            String username = (dbUri.getUserInfo() == null) ? "timothymaina" : dbUri.getUserInfo().split(":")[0];
-            String password = (dbUri.getUserInfo() == null) ? "1234" : dbUri.getUserInfo().split(":")[1];
-            sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, username, password);
-        } catch (URISyntaxException e ) {
-            logger.error("Unable to connect to database.");
-        }
-    }
+    void add(DepartmentInterface department);
+    void addUserToDept(DepartmentInterface department,Users user);
+
+    DepartmentInterface findById(int id);
+    List<DepartmentInterface> allDepartments();
+    List<Users> allDepartmentEmployees(int deptId);
+    List<Users> allDepartmentNews(int deptId);
+
 }
