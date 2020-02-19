@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Users {
     private String company;
     private String role;
@@ -31,5 +33,20 @@ public class Users {
         this.company = company;
         this.role = role;
         this.department = department;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Users users = (Users) o;
+        return company.equals(users.company) &&
+                role.equals(users.role) &&
+                department.equals(users.department);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(company, role, department);
     }
 }

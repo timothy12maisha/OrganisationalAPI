@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Department {
     private String departmentname;
     private String description;
@@ -31,5 +33,20 @@ public class Department {
         this.departmentname = departmentname;
         this.description = description;
         this.employeenumbers = employeenumbers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return employeenumbers == that.employeenumbers &&
+                departmentname.equals(that.departmentname) &&
+                description.equals(that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(departmentname, description, employeenumbers);
     }
 }
