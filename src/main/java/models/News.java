@@ -3,16 +3,19 @@ package models;
 import java.util.Objects;
 
 public class News {
+    private int id;
     private String title;
     private String department;
     private String description;
     private String author;
+
 
     public News(String title, String department, String description, String author) {
         this.title = title;
         this.department = department;
         this.description = description;
         this.author = author;
+
     }
 
     public String getTitle() {

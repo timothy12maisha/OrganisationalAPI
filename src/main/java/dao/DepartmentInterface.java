@@ -5,7 +5,7 @@ import java.util.List;
 public interface DepartmentInterface {
 
     void add(DepartmentInterface department);
-    void addUserToDept(DepartmentInterface department,Users user);
+    void addsUserToDepartment(DepartmentInterface department,Users user);
 
     DepartmentInterface findById(int id);
     List<DepartmentInterface> allDepartments();

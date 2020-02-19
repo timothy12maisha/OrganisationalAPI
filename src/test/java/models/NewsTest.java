@@ -14,7 +14,7 @@ public class NewsTest {
     @Test
     public void getDepartment() {
         News newNews = new News("","Management","","");
-        assertEquals("", newNews.getDepartment());
+        assertEquals("Management", newNews.getDepartment());
     }
 
     @Test

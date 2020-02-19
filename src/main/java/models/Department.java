@@ -3,6 +3,7 @@ package models;
 import java.util.Objects;
 
 public class Department {
+    private int id;
     private String departmentname;
     private String description;
     private int employeenumbers;

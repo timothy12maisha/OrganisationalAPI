@@ -3,16 +3,17 @@ package models;
 import java.util.Objects;
 
 public class Users {
-    private String company;
+    private int id;
+    private String position;
     private String role;
     private String department;
 
     public String getCompany() {
-        return company;
+        return position;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setCompany(String position) {
+        this.position = position;
     }
 
     public String getRole() {
@@ -31,8 +32,8 @@ public class Users {
         this.department = department;
     }
 
-    public Users(String company, String role, String department) {
-        this.company = company;
+    public Users(String position, String role, String department) {
+        this.position = position;
         this.role = role;
         this.department = department;
     }
@@ -42,13 +43,13 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return company.equals(users.company) &&
+        return position.equals(users.position) &&
                 role.equals(users.role) &&
                 department.equals(users.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(company, role, department);
+        return Objects.hash(position, role, department);
     }
 }
