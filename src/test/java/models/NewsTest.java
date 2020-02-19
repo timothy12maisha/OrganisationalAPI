@@ -1,7 +1,6 @@
 package models;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class NewsTest {
@@ -20,9 +19,13 @@ public class NewsTest {
 
     @Test
     public void getDescription() {
+        News newNews =new  News("", "", "","");
+        assertEquals("", newNews.getDescription());
     }
 
     @Test
     public void getAuthor() {
+        News newNews = new News("", "","","");
+        assertEquals("", newNews.getAuthor());
     }
 }
