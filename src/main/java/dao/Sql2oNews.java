@@ -40,7 +40,10 @@ public class Sql2oNews implements NewsInterface {
 
     @Override
     public List<News> allNews() {
-        return null;
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM News")
+                    .executeAndFetch(News.class);
+        }
     }
 
     @Override
