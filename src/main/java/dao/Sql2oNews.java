@@ -19,7 +19,7 @@ public class Sql2oNews implements NewsInterface {
             int id = (int) con.createQuery(sql, true)
                     .addParameter("title", news.getTitle())
                     .addParameter("description", news.getDescription())
-                    .addParameter("author", news.getAuthor())
+                    .addParameter("auhor", news.getAuthor())
                     .executeUpdate()
                     .getKey();
 
